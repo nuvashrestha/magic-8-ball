@@ -1,0 +1,40 @@
+# Magic 8 ball
+
+# This is a program that will simulate a magic eight ball. The program will
+# consist of two functions/methods, one for the main program which will consist
+# of a while loop to prompt the user for questions, and the other method will
+# consist of the code to print out the answer of the magic 8 ball to the user.
+
+import random  # Imports the Random class
+
+
+def printResponse(indexNum):
+    # Defining the list of responses for the magic 8 ball
+    eightBall = ["It is certain.", "It is decidedly so.", "Without a doubt", "Yes - definitely.", "You may rely on it.",
+                 "As I see it, yes.", "Most likely.", "Outlook good.", "Yes.", "Signs point to yes.",
+                 "Reply hazy, try again.",
+                 "Ask again later.", "Better not tell you now.", "Cannot predict now.", "Concentrate and ask again.",
+                 "Don't count on it.", "My reply is no.", "My sources say no.", "Outlook not so good.",
+                 "Very doubtful."]
+
+    print(eightBall[indexNum])  # Printing out the response to the user
+
+
+def main():
+    question = input("What is your question? ")  # Prompts the user for their input
+    randomNum = random.randint(0, 19)  # Gets a random integer from 0 to 19 inclusive
+    printResponse(randomNum)  # Call to function printResponse
+
+    again = input(
+        "Would you like to ask another question? ").lower()  # Prompts the user for their input and converts the input to lowercase
+
+    while (again != "no"):  # While loop
+        question = input("What is your question? ")  # Prompts the user for their input
+        randomNum = random.randint(0, 19)  # Gets a random integer from 0 to 19 inclusive
+        printResponse(randomNum)  # Call to function printResponse
+
+        again = input(
+            "Would you like to ask another question? ").lower()  # Prompts the user for their input and converts the input to lowercase
+
+
+main()  # Call to method main
